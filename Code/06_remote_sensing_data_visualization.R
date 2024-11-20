@@ -44,4 +44,33 @@ plot(b8, col=cl)
 
 # stack images
 sentstack <- c(b2, b3, b4, b8)
-plot(sentstack, col=cl)
+
+dev.off() # it closes devices
+
+#Ploting one layer
+plot(sentstack[[1]], col=cl)
+plot(sentstack[[4]], col=cl)
+
+# Multiframe with different color palette
+par(mfrow=c(2,2))
+
+clb <- colorRampPalette(c("dark blue", "blue", "light blue")) (100)
+plot(b2, col=clb)
+
+# exercise: apply the same concept to the green band
+clg <- colorRampPalette(c("dark green", "green", "light green")) (100)
+plot(b3, col=clg)
+
+clr <- colorRampPalette(c("dark red", "red", "pink")) (100)
+plot(b4, col=clr)
+
+#Plotting NIR band
+cln <- colorRampPalette(c("brown", "orange", "yellow")) (100)
+plot(b8, col=cln)
+
+# RGB plotting 
+# natural color image
+im.plotRGB(sentstack, r=3, g=2, b=1)
+
+#false color image
+im.plotRGB(sentstack, r=4, g=3, b=2) #vegetation wil be red
