@@ -14,6 +14,7 @@ library(imageRy)
 # list the data
 im.list()
 
+#Sentinel-2 bands
 #https://gisgeography.com/sentinel-2-bands-combinations/
 
 #importing the data
@@ -44,6 +45,7 @@ plot(b8, col=cl)
 
 # stack images
 sentstack <- c(b2, b3, b4, b8)
+plot(sentstack)
 
 dev.off() # it closes devices
 
@@ -72,5 +74,6 @@ plot(b8, col=cln)
 # natural color image
 im.plotRGB(sentstack, r=3, g=2, b=1)
 
-#false color image
-im.plotRGB(sentstack, r=4, g=3, b=2) #vegetation wil be red
+im.plotRGB(sentstack, r=4, g=3, b=2) #vegetation wil be red #false color image
+im.plotRGB(sentstack, r=3, g=4, b=2) #vegetation wil be green #false color image
+im.plotRGB(sentstack, r=3, g=2, b=4) #vegetation wil be blue #false color image
